@@ -6523,23 +6523,6 @@
           "type": "string",
           "description": "The file name."
         },
-        "createdTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The created time."
-        },
-        "changedTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The changed time."
-        },
-        "metadata": {
-          "type": "object",
-          "description": "The metadata.",
-          "properties": {}
-        },
         "content": {
           "type": "string",
           "description": "The content.",
@@ -6555,7 +6538,12 @@
           "description": "The content link."
         }
       },
-      "description": "The integration account schema properties."
+      "description": "The integration account schema properties.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ArtifactProperties"
+        }
+      ]
     },
     "IntegrationAccountSchemaListResult": {
       "type": "object",
@@ -6637,18 +6625,6 @@
           },
           "description": "The parameters schema of integration account map."
         },
-        "createdTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The created time."
-        },
-        "changedTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The changed time."
-        },
         "content": {
           "type": "string",
           "description": "The content.",
@@ -6662,14 +6638,14 @@
           "$ref": "#/definitions/ContentLink",
           "readOnly": true,
           "description": "The content link."
-        },
-        "metadata": {
-          "type": "object",
-          "description": "The metadata.",
-          "properties": {}
         }
       },
-      "description": "The integration account map."
+      "description": "The integration account map.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ArtifactProperties"
+        }
+      ]
     },
     "IntegrationAccountMapListResult": {
       "type": "object",
@@ -6788,29 +6764,17 @@
           "$ref": "#/definitions/PartnerType",
           "description": "The partner type."
         },
-        "createdTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The created time."
-        },
-        "changedTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The changed time."
-        },
-        "metadata": {
-          "type": "object",
-          "description": "The metadata.",
-          "properties": {}
-        },
         "content": {
           "$ref": "#/definitions/PartnerContent",
           "description": "The partner content."
         }
       },
-      "description": "The integration account partner properties."
+      "description": "The integration account partner properties.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ArtifactProperties"
+        }
+      ]
     },
     "PartnerType": {
       "type": "string",
@@ -6924,23 +6888,6 @@
         "content"
       ],
       "properties": {
-        "createdTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The created time."
-        },
-        "changedTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The changed time."
-        },
-        "metadata": {
-          "type": "object",
-          "description": "The metadata.",
-          "properties": {}
-        },
         "agreementType": {
           "$ref": "#/definitions/AgreementType",
           "description": "The agreement type."
@@ -6966,7 +6913,12 @@
           "description": "The agreement content."
         }
       },
-      "description": "The integration account agreement properties."
+      "description": "The integration account agreement properties.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ArtifactProperties"
+        }
+      ]
     },
     "AgreementType": {
       "type": "string",
@@ -9048,23 +9000,6 @@
     "IntegrationAccountCertificateProperties": {
       "type": "object",
       "properties": {
-        "createdTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The created time."
-        },
-        "changedTime": {
-          "type": "string",
-          "format": "date-time",
-          "readOnly": true,
-          "description": "The changed time."
-        },
-        "metadata": {
-          "type": "object",
-          "description": "The metadata.",
-          "properties": {}
-        },
         "key": {
           "$ref": "#/definitions/KeyVaultKeyReference",
           "description": "The key details in the key vault."
@@ -9074,7 +9009,12 @@
           "description": "The public certificate."
         }
       },
-      "description": "The integration account certificate properties."
+      "description": "The integration account certificate properties.",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ArtifactProperties"
+        }
+      ]
     },
     "KeyVaultKeyReference": {
       "type": "object",
@@ -9842,7 +9782,12 @@
           "format": "date-time",
           "description": "The artifact changed time."
         },
-        "metadata": {}
+        "metadata": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object"
+          }
+        }
       }
     },
     "BatchConfigurationCollection": {
